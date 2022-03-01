@@ -156,6 +156,7 @@ for i in homotrimer; do
         sed 's/FILE_NAME/'posre_Backbone_chain_A.itp'/g' /mnt/lustre/users/ejohn16/molecular_dynamics/typeI_col/pulling_simulations/pos_res_conditions/pos_res_template.txt >>topol_Protein_chain_A.itp
 
         # Chain C
+        # Requires additional formatting so numbering is chain specific rather than whole protein specific 
 
         printf "chain_C_and_group_Backbone\n" | gmx genrestr -f ${i}_R${j}_em.tpr -n ${i}_index.ndx -o TEMP_chainC.itp -fc 1000 1000 1000
 
@@ -176,7 +177,7 @@ for i in homotrimer; do
 
         #######################################
 
-        # equilibration and md
+        # equilibration and md - run RAMD protocol
 
         #generate mdp files
 
